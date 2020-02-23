@@ -20,4 +20,4 @@ I have no idea who would want to use anything like this. It is a tool that reads
     # echo $a
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!
 
-It will probably have problems with input that has comments (#) and newlines in them.
+It will probably have problems with input that has comments (#) and newlines in them. *Shrug* Not my problem.
