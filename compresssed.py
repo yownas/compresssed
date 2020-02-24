@@ -29,7 +29,7 @@ def compressed(string, mark):
   bestp = ""
   pats = set()
   for i in range(1, int((len(string)-1))):
-    for j in range(1, int((len(string)-i))):
+    for j in range(2, int((len(string)-i)/2)):
       if (i + j) <= len(string):
         p = string[i:i+j]
         c = string.count(p)
