@@ -57,6 +57,7 @@ def compressed(string):
     return(bestp, bests)
 
 # As long as we have markers, find a substring to replace
+output = None
 for m in markers:
     (pat, saved) = compressed(data)
     # ...actually, if we don't same enough, just give up.
@@ -75,5 +76,8 @@ for m in markers:
     print(output)
     print("")
 
-print("Original length: %d" % (orig_len))
-print("Final length: %d (%d)" % (len(output), len(data)))
+if output:
+    print("Original length: %d" % (orig_len))
+    print("Final length: %d (%d)" % (len(output), len(data)))
+else:
+    print("Oops. Couldn't find a way to compress the input.")
