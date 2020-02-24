@@ -18,4 +18,4 @@ I have no idea who would want to use anything like this. It is a tool that reads
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!
 
 
-It will probably have problems with input that has comments (#) and newlines in them. *Shrug* Not my problem.
+It will probably fail if the input has weird characters in it. But, yeah, not my problem.
