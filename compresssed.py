@@ -5,6 +5,7 @@ import string
 
 # Read all the data
 data = sys.stdin.read()
+data = data.strip()
 
 limit = 1
 sed_len = 9
@@ -19,7 +20,7 @@ for c in list(chars):
 
 # Check that we have any markers left (or fail)
 if len(markers) <= 1:
-  print("Not enough unused chars in input to do anything useful. :(")
+  sys.stderr.write("Not enough unused chars in input to do anything useful. :(\n")
   sys.exit(1)
 
 if data.find("\n") != -1:
@@ -29,8 +30,9 @@ if data.find("\n") != -1:
 else:
     sed_post = ""
 
-print("We will use these chars as markers:")
-print(''.join(markers))
+sys.stderr.write("We will use these chars as markers:\n")
+sys.stderr.write(''.join(markers))
+sys.stderr.write("\n")
 
 if data.find("#") != -1:
     sed_pre = "s/^.* #" + markers[0]+ "//;"
@@ -70,10 +72,11 @@ for m in markers:
     pat = pat.replace('/', '\/')
     pat = pat.replace('&', '\&')
     sed = ("s/%s/%s/g;" % (m, pat)) + sed
-    print("Shrank: %d bytes" % (saved))
+    sys.stderr.write("Shrank: %d bytes\n" % (saved))
     output = sed_pre + sed + sed_post + data
-    print(output)
-    print("")
+    sys.stderr.write(output + "\n\n")
 
-print("Original length: %d" % (orig_len))
-print("Final length: %d (%d)" % (len(output), len(data)))
+sys.stderr.write("Original length: %d\n" % (orig_len))
+sys.stderr.write("Final length: %d (%d)\n" % (len(output), len(data)))
+
+print(output)
