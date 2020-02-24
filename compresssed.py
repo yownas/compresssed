@@ -59,6 +59,7 @@ def compressed(string):
     return(bestp, bests)
 
 # As long as we have markers, find a substring to replace
+output = None
 for m in markers:
     (pat, saved) = compressed(data)
     # ...actually, if we don't same enough, just give up.
@@ -76,7 +77,9 @@ for m in markers:
     output = sed_pre + sed + sed_post + data
     sys.stderr.write(output + "\n\n")
 
-sys.stderr.write("Original length: %d\n" % (orig_len))
-sys.stderr.write("Final length: %d (%d)\n" % (len(output), len(data)))
-
-print(output)
+if output:
+    sys.stderr.write("Original length: %d\n" % (orig_len))
+    sys.stderr.write("Final length: %d (%d)\n" % (len(output), len(data)))
+    print(output)
+else:
+    sys.stderr.write("Oops. Couldn't find a way to compress the input.")
