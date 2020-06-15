@@ -47,7 +47,7 @@ def compressed(string):
     bests = 0
     bestp = ""
     # Find the substring that will save the most space
-    for i in range(1, int((len(string)-2))):
+    for i in range(0, int((len(string)-2))):
         for j in range(2, int((len(string)-i)/2)):
             if (i + j) <= len(string):
                 p = string[i:i+j]
